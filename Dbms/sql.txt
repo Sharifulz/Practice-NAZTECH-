@@ -1,0 +1,9 @@
+/*Necessary Sql Query */
+
+create table aemployee(
+					id int,
+					name varchar(100),
+					sal int
+					);
+
+select * from aemployee;
