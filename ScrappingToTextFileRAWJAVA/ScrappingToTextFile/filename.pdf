@@ -1,0 +1,17 @@
+Link : /		Text : jsoup
+Link : /news/		Text : News
+Link : /bugs		Text : Bugs
+Link : /discussion		Text : Discussion
+Link : /download		Text : Download
+Link : /apidocs/		Text : API Reference
+Link : /cookbook/		Text : Cookbook
+Link : //try.jsoup.org/		Text : Try jsoup
+Link : /		Text : jsoup
+Link : /packages/jsoup-1.11.3.jar		Text : jsoup-1.11.3.jar
+Link : /packages/jsoup-1.11.3-sources.jar		Text : jsoup-1.11.3-sources.jar
+Link : /packages/jsoup-1.11.3-javadoc.jar		Text : jsoup-1.11.3-javadoc.jar
+Link : /news/release-1.11.3		Text : 1.11.3 release announcement
+Link : https://github.com/jhy/jsoup/blob/master/CHANGES		Text : changelog
+Link : https://github.com/jhy/jsoup/releases		Text : Previous releases
+Link : http://maven.apache.org/		Text : Maven
+Link : //jhy.io/		Text : Jonathan Hedley
