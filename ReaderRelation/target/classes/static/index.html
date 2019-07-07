@@ -3,26 +3,70 @@
 <head>
 <meta charset="ISO-8859-1">
 <title>Insert title here</title>
+<script
+	src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
+<!-- Latest compiled and minified CSS -->
+<link rel="stylesheet"
+	href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"
+	integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u"
+	crossorigin="anonymous">
+
 </head>
-<body>
+<body ng-app="myApp" ng-controller="appController">
+
+<div class="row mt-5" >
+<div class="col-md-4"></div>
+<div class="col-md-4"></div>
+<div class="col-md-4">
+	<select name="" class="form-control">
+		<option ng-repeat="x in books">{{x.bookName}}</option>
+	</select>
+</div>
+
+</div>
 <div>
-	<center>
-		<form action="/submitForm">
+	<div class="container mt-5">
+		<div class="row">
+			<div class="col-md-3"></div>
+			<div class="col-md-6">
+				<form action="/submitForm">
 		Name: 
-		<input type="text" value="" name="name"><br/>
+		<input type="text" value="" name="name" class="form-control"><br/>
 		Email: 
-		<input type="text" value="" name="email">
+		<input type="text" value="" name="email" class="form-control">
 		<br/> Phone:
-		<input type="text" value="" name="phone">
+		<input type="text" value="" name="phone" class="form-control">
 		<br>
 		BookName 1
-		<input type="text" value="" name="bookName1">
+		<input type="text" value="" name="bookName1" class="form-control">
 		BookName 2
-		<input type="text" value="" name="bookName2">
+		<input type="text" value="" name="bookName2" class="form-control">
 		<br>
-			<input type="submit" value="SUBMIT">
+			<input type="submit" value="SUBMIT" class="btn btn-success">
 		</form>
-	</center>
+			</div>
+			<div class="col-md-3"></div>
+		</div>
+	</div>
+
 </div>
+
+<script type="text/javascript">
+		var app = angular.module("myApp", []);
+		app.controller("appController",function($scope, $http) {
+			
+			$scope.books = [];
+			refreshBooksData();
+			function refreshBooksData() {
+				$http({
+					method : 'GET',
+					url : 'http://localhost:8080/start/allOrder'
+				}).then(function(response) {
+					$scope.books = response.data;
+					console.log($scope.books);
+				});
+			}
+		});
+	</script>
 </body>
 </html>
