@@ -1,0 +1,95 @@
+https://www.slideshare.net/senchainc/senchacon-2016-how-to-give-your-sencha-app-realtime-web-performance-james-schreuder
+
+
+https://github.com/wilk/ExtJS-WebSocket
+
+
+https://spring.io/guides/gs/messaging-stomp-websocket/
+
+
+//-----------------------------------------------------------------------
+package io.naztech.ExcelGenerator;
+
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
+
+import org.springframework.boot.SpringApplication;
+import org.springframework.boot.autoconfigure.SpringBootApplication;
+
+import io.naztech.ExcelGenerator.model.Sms;
+import io.naztech.ExcelGenerator.services.SmsServices;
+import lombok.extern.slf4j.Slf4j;
+
+/**
+* Hello world!
+*
+*/
+
+@Slf4j
+public class App 
+{
+public static void main( String[] args )
+{
+log.debug("Spring Boot is Started");
+// SpringApplication.run(App.class, args);
+Map<String,String> extractData=new HashMap<>();
+String data="Territory & TSO: Pahartoli & Md.sofiqul Islam\r\n" + 
+"SO DB & Base Name: Golafur Rahman & Shahin Store\r\n" + 
+"Fund sent:\r\n" + 
+"Product Recevierd:\r\n" + 
+"Route Name:\r\n" + 
+"Order value:\r\n" + 
+"IMS:30387,Memo No:41 ,CIMS:487778\r\n" + 
+"Line:82,LPC:2.00\r\n" + 
+"Total Outtet: 78, Visited Outlet: 78\r\n" + 
+"Ready Sales:\r\n" + 
+"Total Primary:566666\r\n" + 
+"Previous Day Order: 30387,NEX%:0%\r\n" + 
+"Order Category: Noodles:49 Ctn, Biscuit: 3 Ctn, Chips: 1 polly,\r\n" + 
+"Drinks: 1,Choco Snacks: 3 Ctn\r\n" + 
+"Fund Forecast: 1.00";
+String[] categoricalData= data.split("[A-Za-z0-9]:[A-Za-z0-9]");
+List<String> allMatches = new ArrayList<String>();
+Matcher m = Pattern.compile("[A-Za-z0-9 .]:[A-Za-z0-9 .][,|\n|(\\s$)]").matcher(data);
+while (m.find()) {
+allMatches.add(m.group());
+System.out.println(m.group());
+}
+System.out.println("******************");
+m = Pattern.compile("[A-Za-z0-9 .]:[A-Za-z0-9 .]:[A-Za-z0-9 :,]*[\n]").matcher(data);
+while (m.find()) {
+//allMatches.add(m.group());
+System.out.println(m.group());
+}
+
+
+
+
+
+//	for(String s:categoricalData) {
+//	System.out.println(s);
+//	}
+//
+
+System.out.println("*****************************");
+}
+public static void t(Sms sms) {
+sms.setAddress("New Addressss");
+
+}
+public static Map<String,String> extractsms(Sms sms){
+Map<String,String> extractData=new HashMap<>();
+Pattern p = Pattern.compile("*\n");//. represents single character 
+Matcher m = p.matcher("as\n"); 
+boolean b = m.matches(); 
+
+
+
+return null;
+
+}
+}
